@@ -12,7 +12,7 @@ public class ProdutoDto {
 	@Size(max=10)
 	private String categoria;
 	
-	@NotBlank
+	
 	private int quantidade;
 
 	public String getNomeProduto() {

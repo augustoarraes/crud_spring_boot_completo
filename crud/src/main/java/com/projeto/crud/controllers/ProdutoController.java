@@ -2,6 +2,9 @@ package com.projeto.crud.controllers;
 
 import java.time.LocalDateTime;
 import java.time.ZoneId;
+import java.util.List;
+import java.util.Optional;
+import java.util.UUID;
 
 import javax.validation.Valid;
 
@@ -9,7 +12,11 @@ import org.springframework.beans.BeanUtils;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -37,5 +44,44 @@ public class ProdutoController {
 		return ResponseEntity.status(HttpStatus.CREATED).body( produtoService.save(produtoModel) );
 	}
 	
+	@GetMapping
+	public ResponseEntity<List<ProdutoModel>> getTodosProdutos(){
+		return ResponseEntity.status(HttpStatus.OK).body(produtoService.findAll());
+	}
+	
+	@GetMapping("/{id}")
+	public ResponseEntity<Object> getProdutoId(@PathVariable(value="id") UUID id){
+		Optional<ProdutoModel> produtoModelOptional = produtoService.findByid(id);
+		if (!produtoModelOptional.isPresent()) {
+			return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Produto não encontrado!");
+		}
+		return ResponseEntity.status(HttpStatus.OK).body(produtoModelOptional.get());
+	}
+	
+	@DeleteMapping("/{id}")
+	public ResponseEntity<Object> deleteProduto(@PathVariable(value="id") UUID id){
+		Optional<ProdutoModel> produtoModelOptional = produtoService.findByid(id);
+		if (!produtoModelOptional.isPresent()) {
+			return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Produto não encontrado!");
+		}
+		produtoService.delete(produtoModelOptional.get());
+		return ResponseEntity.status(HttpStatus.OK).body("Produto excluído com suscesso!");
+	}
+	
+	@PutMapping("/{id}")
+	public ResponseEntity<Object> updateProduto(@PathVariable(value="id") UUID id, @RequestBody @Valid ProdutoDto produtoDto){
+		Optional<ProdutoModel> produtoModelOptional = produtoService.findByid(id);
+		if (!produtoModelOptional.isPresent()) {
+			return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Produto não encontrado!");
+		}
+		var produtoModel = new ProdutoModel();
+		BeanUtils.copyProperties(produtoDto, produtoModel);
+		produtoModel.setId( produtoModelOptional.get().getId() );
+		produtoModel.setNomeProduto( produtoModelOptional.get().getNomeProduto() );
+		produtoModel.setCategoria( produtoModelOptional.get().getCategoria() );
+		produtoModel.setQuantidade( produtoModelOptional.get().getQuantidade() );
+		produtoModel.setDataCriacao( produtoModelOptional.get().getDataCriacao() );
+		return ResponseEntity.status(HttpStatus.OK).body(produtoService.save(produtoModel));
+	}
 
 }
