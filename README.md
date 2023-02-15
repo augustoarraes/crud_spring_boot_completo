@@ -64,7 +64,7 @@ Aqui você pode testar via Postman ou em outra IDE de API de sua preferencia.
 
 ## Subindo aplicação com Docker Composer
 
-[Em desenvolvimento]
+`docker-compose up`
 
 
 
