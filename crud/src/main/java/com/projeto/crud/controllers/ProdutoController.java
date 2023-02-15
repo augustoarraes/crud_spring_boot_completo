@@ -77,9 +77,6 @@ public class ProdutoController {
 		var produtoModel = new ProdutoModel();
 		BeanUtils.copyProperties(produtoDto, produtoModel);
 		produtoModel.setId( produtoModelOptional.get().getId() );
-		produtoModel.setNomeProduto( produtoModelOptional.get().getNomeProduto() );
-		produtoModel.setCategoria( produtoModelOptional.get().getCategoria() );
-		produtoModel.setQuantidade( produtoModelOptional.get().getQuantidade() );
 		produtoModel.setDataCriacao( produtoModelOptional.get().getDataCriacao() );
 		return ResponseEntity.status(HttpStatus.OK).body(produtoService.save(produtoModel));
 	}
