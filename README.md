@@ -1,5 +1,5 @@
 # CRUD Spring Boot Completo
-Elaborando um CRUD Spring Boot completo até a monitoração. Uma API Backend com uma entidade de dados com Postgres.
+Elaborando um CRUD Spring Boot completo, passando por monitoração, teste unitário e deploy com Docker. Uma API Backend com uma entidade de dados com Postgres.
 
 ## Chamadas REST
 
@@ -45,6 +45,46 @@ Aqui você pode testar via Postman ou em outra IDE de API de sua preferencia.
     		"dataCriacao": "2023-02-15T13:55:22.413295"
         }
         
+- Recuperando Registros com paginação: via **GET**
+
+        GET http://localhost:8080/produto/page?page=1&size=1
+        {
+   		 "content": [
+    	    {
+   	         "id": "49aac68b-7dac-43d1-ae1b-b55f1a450d60",
+   	         "nomeProduto": "TV",
+   	         "categoria": "Eletronico",
+       	     "quantidade": 30,
+       	     "dataCriacao": "2023-02-15T13:55:22.413295"
+      	  }
+  	  ],
+ 	   "pageable": {
+       	 "sort": {
+            	"empty": false,
+            	"sorted": true,
+            	"unsorted": false
+        	},
+        	"offset": 1,
+        	"pageNumber": 1,
+       	 "pageSize": 1,
+       	 "paged": true,
+      	  "unpaged": false
+   	 },
+  	  "last": false,
+  	  "totalPages": 3,
+ 	   "totalElements": 3,
+ 	   "size": 1,
+ 	   "number": 1,
+	    "sort": {
+        	"empty": false,
+       	 "sorted": true,
+       	 "unsorted": false
+    	},
+    	"first": false,
+    	"numberOfElements": 1,
+   	 "empty": false
+		}
+        
 - Excluindo um Registro:
 
         DELETE http://localhost:8080/produto/ece460f2-7756-42cc-9759-af3bc4dd4f76
@@ -66,5 +106,9 @@ Aqui você pode testar via Postman ou em outra IDE de API de sua preferencia.
 
 `docker-compose up`
 
+É necessário antes gerar o *.jar executável em `crud/target` no seu projeto na IDE, por exemplo. 
 
+## Teste Unitário no Crud app
+
+[Em desenvolvimento]
 
