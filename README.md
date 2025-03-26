@@ -1,7 +1,13 @@
 # CRUD Spring Boot Completo
-Elaborando um CRUD Spring Boot completo, passando por monitoração, teste unitário e deploy com Docker. Uma API Backend com uma entidade de dados com Postgres.
+Elaborando um CRUD Spring Boot completo, com deploy Docker. Uma API Backend com uma entidade de dados com Postgres.
 
-## Chamadas REST
+## Subindo aplicação com Docker Composer
+
+`docker compose up -d`
+
+[Documentação Swagger](http://localhost:8080/swagger-ui/index.html)
+
+## Chamadas REST CRUD
 
 Aqui você pode testar via Postman ou em outra IDE de API de sua preferencia.
 
@@ -84,11 +90,7 @@ Aqui você pode testar via Postman ou em outra IDE de API de sua preferencia.
     	"numberOfElements": 1,
    	 "empty": false
 		}
-        
-- Excluindo um Registro:
 
-        DELETE http://localhost:8080/produto/ece460f2-7756-42cc-9759-af3bc4dd4f76
-        
 - Atualizando dados de um Registro: via **PUT**
 
         PUT http://localhost:8080/produto/49aac68b-7dac-43d1-ae1b-b55f1a450d60
@@ -97,16 +99,15 @@ Aqui você pode testar via Postman ou em outra IDE de API de sua preferencia.
     		"categoria": "Eletronico",
     		"quantidade": 30
         }
+        
+- Excluindo um Registro:
+
+        DELETE http://localhost:8080/produto/ece460f2-7756-42cc-9759-af3bc4dd4f76
+        
 
 ## Monitoração de um CRUD
 
 [Em desenvolvimento]
-
-## Subindo aplicação com Docker Composer
-
-`docker-compose up`
-
-É necessário antes gerar o *.jar executável em `crud/target` no seu projeto na IDE, por exemplo. 
 
 ## Teste Unitário no Crud app
 
