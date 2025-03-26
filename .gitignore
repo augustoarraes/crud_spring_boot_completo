@@ -1,0 +1,52 @@
+# git ignore java spring boot
+# Compilação e Build
+target/
+*.jar
+*.war
+*.ear
+
+# Dependências do Maven
+pom.xml.tag
+pom.xml.releaseBackup
+pom.xml.versionsBackup
+pom.xml.next
+release.properties
+dependency-reduced-pom.xml
+buildNumber.properties
+.mvn/
+!**/src/main/**/mvnw
+!**/src/main/**/mvnw.cmd
+
+# Configurações do IntelliJ IDEA
+.idea/
+*.iml
+*.ipr
+*.iws
+out/
+
+# Configurações do Eclipse
+.project
+.classpath
+.settings/
+bin/
+.metadata
+
+# Arquivos temporários do sistema
+*.swp
+*.swo
+*.DS_Store
+*.log
+Thumbs.db
+ehcache/
+
+# Credenciais e arquivos sensíveis
+#application.properties
+application.yml
+application-dev.properties
+application-prod.properties
+.env
+
+# Arquivos do Docker
+docker-compose.override.yml
+*.env
+logs/
