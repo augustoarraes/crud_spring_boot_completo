@@ -33,6 +33,7 @@ public class ProdutoModel implements Serializable{
 	@Column(nullable=false)
 	private LocalDateTime dataCriacao;
 
+	
 	public UUID getId() {
 		return id;
 	}
