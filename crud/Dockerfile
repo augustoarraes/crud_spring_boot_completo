@@ -24,14 +24,6 @@ EXPOSE 8080
 ENTRYPOINT ["java", "-jar", "app.jar"]
 
 
-# 1. Gerando Imagem Docker:
-# docker build -t srm_api .
-#
-# 2. Executando container em docker:
-# docker run --add-host=host.docker.internal:172.17.0.1 --name srm_api -p 8080:8080 -d srm_api 
-#
-# 3. Testar:
-# http://localhost:8080/
 
 # 1. Gerando Imagem Docker:
 # docker build -t crud_springboot .
