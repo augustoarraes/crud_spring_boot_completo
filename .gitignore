@@ -50,3 +50,43 @@ application-prod.properties
 docker-compose.override.yml
 *.env
 logs/
+
+
+## Git ignore Frontend Angular JS
+# Compiled output
+frontend-angular-produtos-v14/dist
+frontend-angular-produtos-v14/tmp
+frontend-angular-produtos-v14/out-tsc
+frontend-angular-produtos-v14/bazel-out
+
+# Node
+frontend-angular-produtos-v14/node_modules
+frontend-angular-produtos-v14/npm-debug.log
+frontend-angular-produtos-v14/yarn-error.log
+
+# IDEs and editors
+frontend-angular-produtos-v14/.idea/
+frontend-angular-produtos-v14/.project
+frontend-angular-produtos-v14/.classpath
+frontend-angular-produtos-v14/.c9/
+frontend-angular-produtos-v14/*.launch
+frontend-angular-produtos-v14/.settings/
+frontend-angular-produtos-v14/*.sublime-workspace
+
+# Visual Studio Code
+frontend-angular-produtos-v14/.vscode/*
+frontend-angular-produtos-v14/!.vscode/settings.json
+frontend-angular-produtos-v14/!.vscode/tasks.json
+frontend-angular-produtos-v14/!.vscode/launch.json
+frontend-angular-produtos-v14/!.vscode/extensions.json
+frontend-angular-produtos-v14/.history/*
+
+# Miscellaneous
+frontend-angular-produtos-v14/.angular/cache
+frontend-angular-produtos-v14/.sass-cache/
+frontend-angular-produtos-v14/connect.lock
+frontend-angular-produtos-v14/coverage
+frontend-angular-produtos-v14/libpeerconnection.log
+frontend-angular-produtos-v14/testem.log
+frontend-angular-produtos-v14/typings
+

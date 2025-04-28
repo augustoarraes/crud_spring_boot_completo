@@ -3,6 +3,8 @@ package com.projeto.crud.dtos;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
 
+import com.projeto.crud.models.ProdutoModel;
+
 public class ProdutoDto {
 	
 	@NotBlank
@@ -12,8 +14,23 @@ public class ProdutoDto {
 	@Size(max=10)
 	private String categoria;
 	
-	
 	private int quantidade;
+	
+	private double valor;
+	
+	public ProdutoDto(ProdutoModel produtoModel) {
+		this.nomeProduto = produtoModel.getNomeProduto();
+		this.categoria = produtoModel.getCategoria();
+		this.quantidade = produtoModel.getQuantidade();
+		this.valor = produtoModel.getValor();
+	}
+	
+	
+
+	public ProdutoDto() {
+	}
+
+
 
 	public String getNomeProduto() {
 		return nomeProduto;
@@ -38,7 +55,13 @@ public class ProdutoDto {
 	public void setQuantidade(int quantidade) {
 		this.quantidade = quantidade;
 	}
-	
-	
+
+	public double getValor() {
+		return valor;
+	}
+
+	public void setValor(double valor) {
+		this.valor = valor;
+	}
 	
 }

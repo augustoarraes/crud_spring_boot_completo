@@ -14,7 +14,7 @@ services:
          - POSTGRES_USER=postgres
          - POSTGRES_DB=crud_springboot
     networks:
-      - crud-network
+      - crud-network-dev
     
   crud_springboot:
     image: crud_springboot:0.1
@@ -30,29 +30,36 @@ services:
     ports:
       - 8080:8080
     networks:
-      - crud-network
+      - crud-network-dev
     
   crud_frontend_angular:
     image: crud_frontend_angular:0.1
     build:
       context: ./frontend-angular-produtos-v14
-      dockerfile: Dockerfile
+      dockerfile: Dockerfile.dev
     container_name: crud_frontend_angular
+    volumes:
+      - ./frontend-angular-produtos-v14:/app
+      - /app/node_modules
     depends_on:
       - crud_springboot
     expose:
       - 4200
     ports:
-      - 4200:80
+      - 4200:4200
     restart: unless-stopped
+    environment:
+      - CHOKIDAR_USEPOLLING=true
+    working_dir: /app
+    command: npm run start -- --host 0.0.0.0 --port 4200 --disable-host-check
     networks:
-      - crud-network
+      - crud-network-dev
     
 volumes:
   postgres-data:
   
 networks:
-  crud-network:
+  crud-network-dev:
     driver: bridge
     
-# docker compose up -d
+# docker compose -f docker-compose.dev.yml up --build -d

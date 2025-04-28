@@ -1,0 +1,87 @@
+.container {
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 20px;
+    background-color: #f7f9fc;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  h2 {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .products-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+  }
+  
+  .products-table th,
+  .products-table td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  .products-table th {
+    background-color: #007BFF;
+    color: white;
+  }
+  
+  .products-table tr:hover {
+    background-color: #eef1f5;
+  }
+  
+  .add-button {
+    background-color: #28a745;
+    color: white;
+    padding: 10px 18px;
+    margin-bottom: 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+  }
+  
+  .add-button:hover {
+    background-color: #218838;
+  }
+  
+  .action-button {
+    padding: 6px 10px;
+    margin-right: 5px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+  }
+  
+  .action-button.edit {
+    background-color: #ffc107;
+    color: black;
+  }
+  
+  .action-button.edit:hover {
+    background-color: #e0a800;
+  }
+  
+  .action-button.view {
+    background-color: #17a2b8;
+    color: white;
+  }
+  
+  .action-button.view:hover {
+    background-color: #138496;
+  }
+  
+  .action-button.delete {
+    background-color: #dc3545;
+    color: white;
+  }
+  
+  .action-button.delete:hover {
+    background-color: #c82333;
+  }
+  

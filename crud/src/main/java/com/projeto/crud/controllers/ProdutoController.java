@@ -73,8 +73,9 @@ public class ProdutoController {
 		if (!produtoModelOptional.isPresent()) {
 			return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Produto não encontrado!");
 		}
+		ProdutoDto produtoDto = new ProdutoDto(produtoModelOptional.get());
 		produtoService.delete(produtoModelOptional.get());
-		return ResponseEntity.status(HttpStatus.OK).body("Produto excluído com suscesso!");
+		return ResponseEntity.status(HttpStatus.OK).body(produtoDto); // "Produto excluído com suscesso!"
 	}
 	
 	@PutMapping("/{id}")

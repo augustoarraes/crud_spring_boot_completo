@@ -30,6 +30,8 @@ public class ProdutoModel implements Serializable{
 	@Column(nullable=false)
 	private int quantidade=0;
 	
+	private double valor;
+	
 	@Column(nullable=false)
 	private LocalDateTime dataCriacao;
 
@@ -64,6 +66,14 @@ public class ProdutoModel implements Serializable{
 
 	public void setQuantidade(int quantidade) {
 		this.quantidade = quantidade;
+	}
+
+	public double getValor() {
+		return valor;
+	}
+
+	public void setValor(double valor) {
+		this.valor = valor;
 	}
 
 	public LocalDateTime getDataCriacao() {

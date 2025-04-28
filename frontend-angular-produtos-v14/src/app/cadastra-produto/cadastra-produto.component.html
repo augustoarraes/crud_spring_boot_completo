@@ -1,0 +1,32 @@
+<div class="container">
+    <h2>Cadastrar Produto</h2>
+  
+    <form (ngSubmit)="cadastraProduto()" #produtoForm="ngForm">
+  
+      <div class="form-group">
+        <label>Nome do Produto</label>
+        <input type="text" name="nomeProduto" [(ngModel)]="produto.nomeProduto" required />
+      </div>
+  
+      <div class="form-group">
+        <label>Categoria</label>
+        <input type="text" name="categoria" [(ngModel)]="produto.categoria" required />
+      </div>
+  
+      <div class="form-group">
+        <label>Quantidade</label>
+        <input type="number" name="quantidade" [(ngModel)]="produto.quantidade" required />
+      </div>
+  
+      <div class="form-group">
+        <label>Valor</label>
+        <input type="number" name="valor" [(ngModel)]="produto.valor" required />
+      </div>
+  
+      <button type="submit" class="submit-button">Cadastrar</button>
+      <button type="button" class="back-button" (click)="voltar()">Voltar</button>
+
+  
+    </form>
+  </div>
+  

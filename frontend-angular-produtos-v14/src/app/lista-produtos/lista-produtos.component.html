@@ -1,0 +1,36 @@
+<div class="container">
+
+  <h2>Lista de Produtos</h2>
+
+  <button class="add-button" [routerLink]="['/cadastra-produto']">Cadastrar Produto</button>
+
+
+  <table class="products-table">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Nome</th>
+        <th>Quantidade</th>
+        <th>Preço</th>
+        <th>Ações</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let produto of produtos">
+        <td>{{ produto.id }}</td>
+        <td>{{ produto.nomeProduto }}</td>
+        <td>{{ produto.quantidade }}</td>
+        <td>{{ produto.valor | currency: 'BRL' }}</td>
+        <td>
+          <button class="action-button edit" [routerLink]="['/editar-produto', produto.id]">Editar</button>
+          <button class="action-button view" [routerLink]="['/detalhar-produto', produto.id]">Detalhar</button>
+          <button class="action-button delete" (click)="excluirProduto(produto.id)">Excluir</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <button class="add-button" [routerLink]="['/cadastra-produto']">Cadastrar Produto</button>
+
+
+</div>
